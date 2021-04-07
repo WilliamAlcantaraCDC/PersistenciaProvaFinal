@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{LayoutPadrao}">
+	<head>
+	<title>Pesquisa</title>
+	</head>
+	<body>
+		<section layout:fragment="conteudo">
+		<div class="card">
+		<div class="card-header tux-titulo-panel">
+		<span class="tux-titulo-panel">Pesquisa</span>
+		</div>
+		<div class="card-body">
+			<table class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<th scope="col" class="text-center">#</th>
+						<th scope="col" class="text-center">CNS</th>
+						<th scope="col" class="text-center">CPF</th>
+						<th scope="col" class="text-center">Nome Completo</th>
+						<th scope="col" class="text-center">Telefone</th>
+						<th scope="col" class="text-center">Email</th>
+						<th scope="col" class="text-center">Data De Nascimento</th>
+						<th scope="col" class="text-center">Sexo</th>
+						<th scope="col" class="text-center">Nome Da Mae</th>
+						<th scope="col" class="text-center">CEP</th>
+						<th scope="col" class="text-center">Bairro</th>
+						<th scope="col" class="text-center">Endereco</th>
+						<th scope="col" class="text-center">Numero</th>
+						<th scope="col" class="text-center">Profissao</th>
+						<th scope="col"></th>
+					</tr>
+				</thead>
+				<tbody>
+				<tr scope="row" th:each="titulo : ${titulos}">
+					<td class="text-center" th:text="${titulo.Id}"></td>
+					<td th:text="${titulo.CNS}"></td>
+					<td class="text-center" th:text="${titulo.CPF}"></td>
+					<td class="text-center" th:text="${titulo.Nome_Completo}"></td>
+					<td class="text-center" th:text="${titulo.Telefone}"></td>
+					<td class="text-center" th:text="${titulo.Email}"></td>
+					<td class="text-center" th:text="${{titulo.dataNascimento}}"></td>
+					<td class="text-center" th:text="${titulo.sexo}"></td>
+					<td class="text-center" th:text="${titulo.Nome_Mae}"></td>
+					<td class="text-center" th:text="${titulo.CEP}"></td>
+					<td class="text-center" th:text="${titulo.Bairro}"></td>
+					<td class="text-center" th:text="${titulo.Endereco}"></td>
+					<td class="text-center" th:text="${titulo.Numero}"></td>
+					<td class="text-center" th:text="${titulo.Profissao}"></td>
+				</tr>
+					<tr>
+						<td colspan="6"th:if="${#lists.isEmpty(titulos)}">Nenhum registro encontrado.</td>
+					</tr>
+				</tbody>
+			</table>
+			
+		</section>
+	</body>
+</html>
